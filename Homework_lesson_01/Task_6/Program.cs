@@ -9,12 +9,12 @@ double number;
 
 Console.WriteLine("Введите число:");
 number = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Вы ввели число:" + number);
+
 if (number % 2 == 0)
 {
-    Console.WriteLine("Да");
+    Console.WriteLine($"{number} -> Да");
 }
 else
 {
-    Console.WriteLine("Нет");
+    Console.WriteLine($"{number} -> Нет");
 }

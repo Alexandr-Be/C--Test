@@ -6,15 +6,13 @@
 */
 Console.WriteLine("Введите целое число больше единицы:");
 int number = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Вы ввели число: " + number);
+Console.Write($"{number} -> ");
 int i = 1;
 while (i <= number)
 {
-    // Console.WriteLine(i);
     if (i % 2 == 0)
     {
-        Console.Write(i);
-        Console.Write(", ");
+        Console.Write($"{i}, ");
     }
     i++;
 }

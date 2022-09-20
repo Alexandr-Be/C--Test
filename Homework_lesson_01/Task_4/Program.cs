@@ -7,17 +7,14 @@
 */
 double numberA, numberB, numberC;
 
-Console.WriteLine("Введите число А:");
+Console.WriteLine("Введите число a:");
 numberA = Convert.ToDouble(Console.ReadLine());
 
-Console.WriteLine("Введите число B:");
+Console.WriteLine("Введите число b:");
 numberB = Convert.ToDouble(Console.ReadLine());
 
-Console.WriteLine("Введите число C:");
+Console.WriteLine("Введите число c:");
 numberC = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Число А = " + numberA);
-Console.WriteLine("Число B = " + numberB);
-Console.WriteLine("Число C = " + numberC);
 
 double max = numberA;
 
@@ -35,4 +32,4 @@ if (max < numberC)
     max = numberC;
 }
 
-Console.WriteLine("max = " + max);
+Console.WriteLine($"{numberA}, {numberB}, {numberC} -> {max}");

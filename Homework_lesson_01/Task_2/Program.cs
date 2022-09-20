@@ -6,21 +6,23 @@ a = 2 b = 10 -> max = 10
 a = -9 b = -3 -> max = -3
 */
 double numberA, numberB;
-Console.WriteLine("Введите число А:");
+
+Console.WriteLine("Введите число a:");
 numberA = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Введите число B:");
+Console.WriteLine("Введите число b:");
 numberB = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Число А = " + numberA);
-Console.WriteLine("Число B = " + numberB);
+
 double max = numberA;
-if (max == numberB)
+double min = numberB;
+if (max == min)
 {
     Console.WriteLine("Числа равны");
     return;
 }
-if (max < numberB)
+if (max < min)
 {
     max = numberB;
+    min = numberA;
 }
 
-Console.WriteLine("max = " + max);
+Console.WriteLine($"a = {numberA}; b = {numberB} -> max = {max}; min = {min}");
