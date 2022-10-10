@@ -8,29 +8,25 @@
 23432 -> да
 */
 
-void Is_Palindrom(int[] processablenumber)
+void Is_Palindrom(int inputednumber)
 {   
-    int result, index;
+    int result, index, processablenumber;
     int[] array = new int[5];
-    // Console.WriteLine("Введите пятизначное число:");
-    // processablenumber = Convert.ToInt32(Console.ReadLine());
 
+    processablenumber = inputednumber;
     index = 0;
     while (processablenumber > 0)
     {
         result = processablenumber % 10;
         processablenumber = processablenumber / 10;
         array[index] = result;
-        Console.WriteLine(array[index]);
         index++;
         
     }
     
-    // if (result >= 0)
-    // {
-    //     Console.WriteLine($"{number} -> {result}");
-    // }
-    // else Console.WriteLine($"{number} -> третьей цифры нет");
+    if (array[0]==array[4] && array[1]==array[3])
+        Console.WriteLine($"{inputednumber} -> да");
+    else Console.WriteLine($"{inputednumber} -> нет");
 }
 
     Console.WriteLine("Введите пятизначное число:");
