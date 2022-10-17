@@ -26,15 +26,15 @@ void PrintArray(int[] array)
     Console.Write("]");
 }
 
-int CountEvenPositions(int[] array)
+int[] CountCompositionOfCouples(int[] array, int lenghtArray)
 {
-    int count = 0;
-    for (int i = 1; i < array.Length; i += 2)
+    int[] newarray = new int[lenghtArray/2];
+    int newarraylenth=lenghtArray/2;
+    for (int i = 0; i < newarraylenth; i ++)
     {
-        count += array[i];
-
+        newarray[i]= array[i]*array[array.Length-1-i];
     }
-    return count;
+    return newarray;
 }
 
 Console.WriteLine("Введите длину массива:");
@@ -42,6 +42,7 @@ int lenghtArray = Convert.ToInt32(Console.ReadLine());
 int[] array = new int[lenghtArray];
 FillArray(array);
 PrintArray(array);
-int countedNumbers = CountEvenPositions(array);
-Console.Write($" -> {countedNumbers}");
+Console.Write(" -> ");
+int[] countedArray = CountCompositionOfCouples(array, lenghtArray);
+PrintArray(countedArray);
 Console.WriteLine();
