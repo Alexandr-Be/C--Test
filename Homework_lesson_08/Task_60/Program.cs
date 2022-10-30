@@ -42,7 +42,6 @@ int[,,] CreateMatr(int[,,] matr)
             {
                 for (int k = 0; k < matr.GetLength(2); k++)
                 {
-                    // matr[i,j,k] = new Random().Next(1,100);
                     matr[i, j, k] = array[arrayPosition];
                     arrayPosition++;
                 }
