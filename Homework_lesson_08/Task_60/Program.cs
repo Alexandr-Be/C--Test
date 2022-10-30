@@ -8,55 +8,54 @@
 26(1,0,1) 55(1,1,1)
 */
 
-void FillArray(int[,,] matr)
+int[,,] CreateMatr(int[,,] matr)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    int[] FillArray(int[] array)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
-        {
-            for (int k = 0; k < matr.GetLength(2); k++)
-            {
-                // matr[i,j,k] = new Random().Next(1,100);
-                matr[i, j, k] = 5;
-            }
-        }
+        for (int i=0; i< array.GetLength(0); i++)
+            array[i]=new Random().Next(10,100);
+        return array;
     }
-}
 
-int[,,] ChekMatrix(int[,,] matr)
-{
-    int[,,] newMatr = new int[matr.GetLength(0), matr.GetLength(1), matr.GetLength(2)];
-    int CompareElement(int l, int m, int n)
+    int[] CheckElements(int[] array)
     {
-        for (int l = 0; l < matr.GetLength(0); l++)
+        for (int i=0; i< array.GetLength(0); i++)
         {
-            for (int m = 0; m < matr.GetLength(1); m++)
+            for(int j=i+1; j<array.GetLength(0); j++)
             {
-                for (int n = 0; n < matr.GetLength(2); n++)
+                if (array[i]==array[j])
                 {
-                    if (matr[l,m,n]!=CompareElement(l+1,m,n)) return matr[l,m,n];
-                    else
-                        {
-                           matr[l,m,n] = new Random().Next(1,100);
-                           CompareElement(l,m,n);
-                        }
+                    array[j]= new Random().Next(10,100);
+                    CheckElements(array);
                 }
             }
         }
+        return array;
     }
-    for (int i = 0; i < matr.GetLength(0); i++)
+
+    int[,,] FillMatr( int[,,]matr, int[] array)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        int arrayPosition=0;
+        for (int i = 0; i < matr.GetLength(0); i++)
         {
-            for (int k = 0; k < matr.GetLength(2); k++)
+            for (int j = 0; j < matr.GetLength(1); j++)
             {
-                newMatr[i, j, k] = CompareElement(i, j, k);
+                for (int k = 0; k < matr.GetLength(2); k++)
+                {
+                    // matr[i,j,k] = new Random().Next(1,100);
+                    matr[i, j, k] = array[arrayPosition];
+                    arrayPosition++;
+                }
             }
         }
+        return matr;
     }
-    return newMatr;
+    int[] array = new int[matr.GetLength(0)*matr.GetLength(1)*matr.GetLength(2)];
+    FillArray(array);
+    CheckElements(array);
+    FillMatr(matr, array);
+    return matr;
 }
-
 
 void PrintMatr(int[,,] matr)
 {
@@ -75,8 +74,6 @@ void PrintMatr(int[,,] matr)
 
 
 int[,,] matrix = new int[2, 2, 2];
-FillArray(matrix);
-int[,,] chekedMatrix = ChekMatrix(matrix);
-
+int[,,] chekedMatrix=CreateMatr(matrix);
 PrintMatr(chekedMatrix);
 Console.WriteLine();
